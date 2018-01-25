@@ -8,7 +8,7 @@ RSpec.describe FileParser do
     let(:file) { nil }
 
     it 'should raise exception' do
-      expect(subject.perform).to raise_error('File could not be found')
+      expect{subject.perform}.to raise_error(/File could not be found/)
     end
   end
 
@@ -16,7 +16,7 @@ RSpec.describe FileParser do
     let(:file) { './spec/fixtures/files/invalid_file.json' }
 
     it 'should raise exception' do
-      expect(subject.perform).to raise_error('Unsupported file type provided')
+      expect{subject.perform}.to raise_error(/Unsupported file type provided/)
     end
   end
 

@@ -1,18 +1,18 @@
 require_relative '../../lib/bitmap_editor.rb'
 
 RSpec.describe 'Drawing a bitmap from a command file' do
-  subject { BitmapEditor.new.run(command_file) }
+  subject { BitmapEditor.new(file).run }
 
   context 'with no file provided' do
-    let(:command_file) { nil }
+    let(:file) { nil }
 
     it 'should return an error message' do
-      expect { subject }.to raise_error(FileNotFound)
+      expect { subject }.to raise_error(/File could not be found/)
     end
   end
 
   context 'with the correct show.txt commands file from examples directory' do
-    let(:command_file) { './examples/show.txt' }
+    let(:file) { './examples/show.txt' }
     let(:expected_result) { "OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO" }
 
     it 'should return the expected output' do
