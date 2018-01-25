@@ -8,10 +8,10 @@ RSpec.describe TextFileParser do
     let(:file) { './spec/fixtures/files/valid_file.txt' }
     let(:expected_result) do
       [
-        {'I' => ['5, 6']},
-        {'L' => ['1, 3, A']},
-        {'V' => ['2, 3, 6, W']},
-        {'H' => ['3, 5, 2, Z']},
+        {'I' => ['5', '6']},
+        {'L' => ['1', '3', 'A']},
+        {'V' => ['2', '3', '6', 'W']},
+        {'H' => ['3', '5', '2', 'Z']},
         {'S' => []}
       ]
     end
