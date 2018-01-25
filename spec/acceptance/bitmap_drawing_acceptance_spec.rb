@@ -5,10 +5,9 @@ RSpec.describe 'Drawing a bitmap from a command file' do
 
   context 'with no file provided' do
     let(:command_file) { nil }
-    let(:expected_result) { "Please provide a file\n" }
 
     it 'should return an error message' do
-      expect { subject }.to output(expected_result).to_stdout
+      expect { subject }.to raise_error(FileNotFound)
     end
   end
 
