@@ -20,20 +20,4 @@ RSpec.describe TextFileParser do
       expect(subject.perform).to eq(expected_result)
     end
   end
-
-  context 'with text file with invalid starting command' do
-    let(:file) { './spec/fixtures/files/invalid_starting_command.txt' }
-
-    it 'raises an exception' do
-      expect{subject.perform}.to raise_error(RuntimeError, /First command must be I/)
-    end
-  end
-
-  context 'with text file containing unknown command letter' do
-    let(:file) { './spec/fixtures/files/unknown_command.txt' }
-
-    it 'raises an exception' do
-      expect{subject.perform}.to raise_error(RuntimeError, /Unknown command specified/)
-    end
-  end
 end
