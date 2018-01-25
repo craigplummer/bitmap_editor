@@ -22,10 +22,18 @@ RSpec.describe FileParser do
 
   context 'with valid file extension and file' do
     let(:file) { './spec/fixtures/files/valid_file.txt' }
-    let(:commands) { [] }
+    let(:expected_result) do
+      [
+        {'I' => ['5, 6']},
+        {'L' => ['1, 3, A']},
+        {'V' => ['2, 3, 6, W']},
+        {'H' => ['3, 5, 2, Z']},
+        {'S' => []}
+      ]
+    end
 
     it 'should return a list of commands' do
-      expect(subject.perform).to eq(commands)
+      expect(subject.perform).to eq(expected_result)
     end
   end
 end
