@@ -13,13 +13,5 @@ RSpec.describe BuildBitmapCommand do
         subject.perform
       end
     end
-
-    context 'with invalid arguments' do
-      let(:args) { [251, -3] }
-
-      it 'raises an exception' do
-        expect{subject.perform}.to raise_error(RuntimeError, /Image size must be between 250 x 250 pixels/)
-      end
-    end
   end
 end
