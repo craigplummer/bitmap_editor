@@ -5,7 +5,7 @@ class BitmapEditor
   attr_reader :commands
 
   def initialize(file)
-    @commands = FileParser.new(file).commands
+    @commands = FileParser.new(file).perform
   end
 
   def run
