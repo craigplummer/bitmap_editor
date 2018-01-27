@@ -2,14 +2,26 @@ require_relative '../spec_helper'
 require_relative '../../lib/command_runner'
 
 RSpec.describe CommandRunner do
-  subject { described_class.new(command) }
+  subject { described_class.new(command, bitmap) }
+  
 
   describe '#perform' do
     context 'with I command' do
       let(:command) { { 'I' => ['3', '5']} }
+      let(:bitmap) { nil }
 
       it 'initializes new BuildBitmapCommand' do
-        expect(BuildBitmapCommand).to receive(:new).with('3', '5').and_call_original
+        expect(BuildBitmapCommand).to receive(:new).with('3', '5', nil).and_call_original
+        subject.perform
+      end
+    end
+
+    context 'with C command' do
+      let(:command) { { 'C' => []} }
+      let(:bitmap) { Bitmap.new(3, 4) }
+
+      it 'initializes new ClearBitmapCommand' do
+        expect(ClearBitmapCommand).to receive(:new).with(bitmap).and_call_original
         subject.perform
       end
     end

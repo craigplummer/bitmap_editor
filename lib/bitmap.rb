@@ -9,13 +9,17 @@ class Bitmap
     @x = x
     @y = y
     validate_dimensions
-    @image = build_bitmap_image
+    build_bitmap_image
+  end
+
+  def clear
+    build_bitmap_image
   end
 
   private
 
   def build_bitmap_image
-    Array.new(x) { Array.new(y) { DEFAULT_COLOUR } }
+    @image = Array.new(x) { Array.new(y) { DEFAULT_COLOUR } }
   end
 
   def validate_dimensions
