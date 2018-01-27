@@ -1,11 +1,13 @@
 require_relative 'commands/build_bitmap_command'
 require_relative 'commands/clear_bitmap_command'
+require_relative 'commands/show_bitmap_command'
 require 'pry'
 
 class CommandRunner
   COMMANDS = {
     'I' => BuildBitmapCommand,
-    'C' => ClearBitmapCommand
+    'C' => ClearBitmapCommand,
+    'S' => ShowBitmapCommand
   }.freeze
 
   attr_reader :command, :args

@@ -25,5 +25,15 @@ RSpec.describe CommandRunner do
         subject.perform
       end
     end
+
+    context 'with S command' do
+      let(:command) { { 'S' => []} }
+      let(:bitmap) { Bitmap.new(3, 4) }
+
+      it 'initializes new ClearBitmapCommand' do
+        expect(ShowBitmapCommand).to receive(:new).with(bitmap).and_call_original
+        subject.perform
+      end
+    end
   end
 end
