@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 require_relative '../spec_helper'
 require_relative '../../lib/command_runner'
 require_relative '../../lib/bitmap'
 
 RSpec.describe CommandRunner do
   subject { described_class.new(command, bitmap) }
-  
 
   describe '#perform' do
     context 'with I command' do
-      let(:command) { { 'I' => ['3', '5']} }
+      let(:command) { { 'I' => %w[3 5] } }
       let(:bitmap) { nil }
 
       it 'initializes new BuildBitmapCommand' do
@@ -18,7 +19,7 @@ RSpec.describe CommandRunner do
     end
 
     context 'with C command' do
-      let(:command) { { 'C' => []} }
+      let(:command) { { 'C' => [] } }
       let(:bitmap) { Bitmap.new(3, 4) }
 
       it 'initializes new ClearBitmapCommand' do
@@ -28,7 +29,7 @@ RSpec.describe CommandRunner do
     end
 
     context 'with S command' do
-      let(:command) { { 'S' => []} }
+      let(:command) { { 'S' => [] } }
       let(:bitmap) { Bitmap.new(3, 4) }
 
       it 'initializes new ClearBitmapCommand' do
@@ -38,7 +39,7 @@ RSpec.describe CommandRunner do
     end
 
     context 'with L command' do
-      let(:command) { { 'L' => ['2', '3', 'P'] } }
+      let(:command) { { 'L' => %w[2 3 P] } }
       let(:bitmap) { Bitmap.new(3, 4) }
 
       it 'initializes new ColourPixelCommand' do
@@ -48,21 +49,25 @@ RSpec.describe CommandRunner do
     end
 
     context 'with H command' do
-      let(:command) { { 'H' => ['1', '2', '3', 'P'] } }
+      let(:command) { { 'H' => %w[1 2 3 P] } }
       let(:bitmap) { Bitmap.new(5, 5) }
 
       it 'initializes new DrawHorizontalSegmentCommand' do
-        expect(DrawHorizontalSegmentCommand).to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
+        expect do
+          DrawHorizontalSegmentCommand
+        end.to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
         subject.perform
       end
     end
 
     context 'with V command' do
-      let(:command) { { 'V' => ['1', '2', '3', 'P'] } }
+      let(:command) { { 'V' => %w[1 2 3 P] } }
       let(:bitmap) { Bitmap.new(5, 5) }
 
       it 'initializes new DrawVerticalSegmentCommand' do
-        expect(DrawVerticalSegmentCommand).to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
+        expect do
+          DrawVerticalSegmentCommand
+        end.to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
         subject.perform
       end
     end

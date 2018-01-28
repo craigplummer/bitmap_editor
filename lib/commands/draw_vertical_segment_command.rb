@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'colour_pixel_command'
 
 class DrawVerticalSegmentCommand
@@ -15,7 +17,6 @@ class DrawVerticalSegmentCommand
   end
 
   def perform
-    
     (y1..y2).each do |y|
       ColourPixelCommand.new(x, y, colour, bitmap).perform
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../spec_helper'
 require_relative '../../lib/file_parser.rb'
 
@@ -8,7 +10,7 @@ RSpec.describe FileParser do
     let(:file) { nil }
 
     it 'should raise exception' do
-      expect{subject.perform}.to raise_error(/File could not be found/)
+      expect { subject.perform }.to raise_error(/File could not be found/)
     end
   end
 
@@ -16,7 +18,7 @@ RSpec.describe FileParser do
     let(:file) { './spec/fixtures/files/invalid_file.json' }
 
     it 'should raise exception' do
-      expect{subject.perform}.to raise_error(/Unsupported file type provided/)
+      expect { subject.perform }.to raise_error(/Unsupported file type provided/)
     end
   end
 
@@ -24,11 +26,11 @@ RSpec.describe FileParser do
     let(:file) { './spec/fixtures/files/valid_file.txt' }
     let(:expected_result) do
       [
-        {'I' => ['5', '6']},
-        {'L' => ['1', '3', 'A']},
-        {'V' => ['2', '3', '6', 'W']},
-        {'H' => ['3', '5', '2', 'Z']},
-        {'S' => []}
+        { 'I' => %w[5 6] },
+        { 'L' => %w[1 3 A] },
+        { 'V' => %w[2 3 6 W] },
+        { 'H' => %w[3 5 2 Z] },
+        { 'S' => [] }
       ]
     end
 
@@ -41,7 +43,7 @@ RSpec.describe FileParser do
     let(:file) { './spec/fixtures/files/invalid_starting_command.txt' }
 
     it 'raises an exception' do
-      expect{subject.perform}.to raise_error(RuntimeError, /First command must be I/)
+      expect { subject.perform }.to raise_error(RuntimeError, /First command must be I/)
     end
   end
 
@@ -49,7 +51,7 @@ RSpec.describe FileParser do
     let(:file) { './spec/fixtures/files/unknown_command.txt' }
 
     it 'raises an exception' do
-      expect{subject.perform}.to raise_error(RuntimeError, /Unknown command specified/)
+      expect { subject.perform }.to raise_error(RuntimeError, /Unknown command specified/)
     end
   end
 end

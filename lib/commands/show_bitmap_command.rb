@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShowBitmapCommand
   attr_reader :bitmap
 
@@ -12,6 +14,6 @@ class ShowBitmapCommand
   end
 
   def validate_command(*args)
-    raise 'Too many arguments provided for command' unless args.count - 1 == 0
+    raise 'Too many arguments provided for command' unless (args.count - 1).zero?
   end
 end

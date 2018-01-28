@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../spec_helper'
 require_relative '../../../lib/commands/draw_vertical_segment_command'
 require_relative '../../../lib/bitmap'
@@ -11,11 +13,11 @@ RSpec.describe DrawVerticalSegmentCommand do
       let(:args) { [1, 3, 5, 'P', bitmap] }
       let(:expected_image) do
         [
-          ['O', 'O', 'O', 'O', 'O'],
-          ['O', 'O', 'O', 'O', 'O'],
-          ['P', 'O', 'O', 'O', 'O'],
-          ['P', 'O', 'O', 'O', 'O'],
-          ['P', 'O', 'O', 'O', 'O']
+          %w[O O O O O],
+          %w[O O O O O],
+          %w[P O O O O],
+          %w[P O O O O],
+          %w[P O O O O]
         ]
       end
 
@@ -30,7 +32,9 @@ RSpec.describe DrawVerticalSegmentCommand do
         let(:args) { [1, 3, 9, 'P', bitmap] }
 
         it 'should raise an exception' do
-          expect{subject.perform}.to raise_error(RuntimeError, /You can't draw outside of bitmap/)
+          expect do
+            subject.perform
+          end.to raise_error(RuntimeError, /You can't draw outside of bitmap/)
         end
       end
 
@@ -38,7 +42,7 @@ RSpec.describe DrawVerticalSegmentCommand do
         let(:args) { [5, 3, 2, 'P', bitmap] }
 
         it 'should raise an exception' do
-          expect{subject.perform}.to raise_error(RuntimeError, /Y1 needs to be lower than Y2/)
+          expect { subject.perform }.to raise_error(RuntimeError, /Y1 needs to be lower than Y2/)
         end
       end
 
@@ -46,7 +50,7 @@ RSpec.describe DrawVerticalSegmentCommand do
         let(:args) { [2, 3, 4, 'PP', bitmap] }
 
         it 'should raise an exception' do
-          expect{subject.perform}.to raise_error(RuntimeError, /Invalid colour value specified/)
+          expect { subject.perform }.to raise_error(RuntimeError, /Invalid colour value specified/)
         end
       end
     end

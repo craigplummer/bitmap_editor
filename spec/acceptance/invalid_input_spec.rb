@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../lib/bitmap_editor.rb'
 require 'pry'
 
@@ -20,7 +22,7 @@ RSpec.describe 'Invalid Input Examples' do
     end
 
     it 'should raise exception' do
-      expect{subject.perform}.to raise_error(/Unknown command specified/)
+      expect { subject.perform }.to raise_error(/Unknown command specified/)
     end
   end
 
@@ -33,10 +35,10 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Image size must be between 250 x 250 pixels/)
+        expect { subject.perform }.to raise_error(/Image size must be between 250 x 250 pixels/)
       end
     end
-    
+
     describe 'with negative dimensions' do
       let(:input) do
         <<~COMMANDS
@@ -45,7 +47,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Image size must be between 250 x 250 pixels/)
+        expect { subject.perform }.to raise_error(/Image size must be between 250 x 250 pixels/)
       end
     end
 
@@ -57,7 +59,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too many arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too many arguments provided for command/)
       end
     end
 
@@ -69,7 +71,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too few arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too few arguments provided for command/)
       end
     end
 
@@ -81,7 +83,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Image size must be between 250 x 250 pixels/)
+        expect { subject.perform }.to raise_error(/Image size must be between 250 x 250 pixels/)
       end
     end
   end
@@ -96,7 +98,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too many arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too many arguments provided for command/)
       end
     end
   end
@@ -111,10 +113,10 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
-    
+
     describe 'with negative pixel instruction' do
       let(:input) do
         <<~COMMANDS
@@ -124,7 +126,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
 
@@ -137,7 +139,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too many arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too many arguments provided for command/)
       end
     end
 
@@ -150,7 +152,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too few arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too few arguments provided for command/)
       end
     end
 
@@ -163,7 +165,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Invalid colour value specified/)
+        expect { subject.perform }.to raise_error(/Invalid colour value specified/)
       end
     end
 
@@ -176,7 +178,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
   end
@@ -191,10 +193,10 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
-    
+
     describe 'with negative pixel instruction' do
       let(:input) do
         <<~COMMANDS
@@ -204,7 +206,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
 
@@ -217,7 +219,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too many arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too many arguments provided for command/)
       end
     end
 
@@ -230,7 +232,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too few arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too few arguments provided for command/)
       end
     end
 
@@ -243,7 +245,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Invalid colour value specified/)
+        expect { subject.perform }.to raise_error(/Invalid colour value specified/)
       end
     end
 
@@ -256,7 +258,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
   end
@@ -271,10 +273,10 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
-    
+
     describe 'with negative pixel instruction' do
       let(:input) do
         <<~COMMANDS
@@ -284,7 +286,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
 
@@ -297,7 +299,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too many arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too many arguments provided for command/)
       end
     end
 
@@ -310,7 +312,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too few arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too few arguments provided for command/)
       end
     end
 
@@ -323,7 +325,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Invalid colour value specified/)
+        expect { subject.perform }.to raise_error(/Invalid colour value specified/)
       end
     end
 
@@ -336,7 +338,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/You can't draw outside of bitmap/)
+        expect { subject.perform }.to raise_error(/You can't draw outside of bitmap/)
       end
     end
   end
@@ -351,7 +353,7 @@ RSpec.describe 'Invalid Input Examples' do
       end
 
       it 'should raise exception' do
-        expect{subject.perform}.to raise_error(/Too many arguments provided for command/)
+        expect { subject.perform }.to raise_error(/Too many arguments provided for command/)
       end
     end
   end

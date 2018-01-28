@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require './lib/bitmap_editor'
 
-BitmapEditor.new(ARGV.first).run 
+BitmapEditor.new(ARGV.first).run

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ColourPixelCommand
   attr_reader :x, :y, :colour, :bitmap
 

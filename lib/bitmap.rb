@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bitmap
   MAX_WIDTH = 250
   MAX_HEIGHT = 250

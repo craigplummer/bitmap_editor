@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../spec_helper'
 require_relative '../../lib/bitmap'
 
@@ -9,9 +11,9 @@ RSpec.describe Bitmap do
     let(:y) { 5 }
     let(:expected_image) do
       [
-        ['O', 'O', 'O', 'O', 'O'],
-        ['O', 'O', 'O', 'O', 'O'],
-        ['O', 'O', 'O', 'O', 'O']
+        %w[O O O O O],
+        %w[O O O O O],
+        %w[O O O O O]
       ]
     end
 

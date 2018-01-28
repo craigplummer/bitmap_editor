@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../spec_helper'
 require_relative '../../../lib/commands/clear_bitmap_command'
 
@@ -9,8 +11,8 @@ RSpec.describe ClearBitmapCommand do
     let(:args) { [bitmap] }
     let(:expected_image) do
       [
-        ['O', 'O', 'O', 'O'],
-        ['O', 'O', 'O', 'O']
+        %w[O O O O],
+        %w[O O O O]
       ]
     end
 
