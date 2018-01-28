@@ -43,7 +43,6 @@ class FileParser
   end
 
   def commands_valid?
-    # TODO: Tidy this up
     commands.each do |command|
       raise 'Unknown command specified' unless ALLOWED_COMMANDS.include?(command.keys[0])
     end

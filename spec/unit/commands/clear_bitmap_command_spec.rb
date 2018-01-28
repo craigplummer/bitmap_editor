@@ -15,9 +15,8 @@ RSpec.describe ClearBitmapCommand do
         %w[O O O O]
       ]
     end
-
+    
     it 'should reset the bitmap back O' do
-      # TODO: Add an action to modify the bitmap here
       expect(bitmap).to receive(:clear).and_call_original
       expect(bitmap.image).to eq(expected_image)
       subject.perform

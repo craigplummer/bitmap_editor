@@ -9,10 +9,10 @@ RSpec.describe ShowBitmapCommand do
   describe '#perform' do
     let(:bitmap) { Bitmap.new(2, 4) }
     let(:args) { [bitmap] }
-    let(:expected_result) { "OOOO\nOOOO\n" }
+    let(:expected_result) { "OOOO\nOPOO\n" }
 
     it 'should print the bitmap image to stdout' do
-      # TODO: Add an action to modify the bitmap here
+      ColourPixelCommand.new(2, 2, 'P', bitmap).perform
       expect { subject.perform }.to output(expected_result).to_stdout
     end
   end
