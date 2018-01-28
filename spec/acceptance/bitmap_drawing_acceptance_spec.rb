@@ -13,7 +13,7 @@ RSpec.describe 'Drawing a bitmap from a command file' do
 
   context 'with the correct show.txt commands file from examples directory' do
     let(:file) { './examples/show.txt' }
-    let(:expected_result) { "OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO" }
+    let(:expected_result) { "OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO\n" }
 
     it 'should return the expected output' do
       expect { subject }.to output(expected_result).to_stdout

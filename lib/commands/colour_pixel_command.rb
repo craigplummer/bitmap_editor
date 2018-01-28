@@ -2,15 +2,15 @@ class ColourPixelCommand
   attr_reader :x, :y, :colour, :bitmap
 
   def initialize(*args)
-    @x = args[0].to_i - 1
-    @y = args[1].to_i - 1
+    @y = args[0].to_i - 1
+    @x = args[1].to_i - 1
     @colour = args[2]
     @bitmap = args[3]
   end
 
   def perform
     validate_attributes
-    bitmap.image[y][x] = colour
+    bitmap.image[x][y] = colour
     bitmap
   end
 

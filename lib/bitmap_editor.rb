@@ -9,8 +9,8 @@ class BitmapEditor
   end
 
   def run
+    bitmap = nil
     commands.each do |command|
-      bitmap = nil
       bitmap = CommandRunner.new(command, bitmap).perform
     end
   end

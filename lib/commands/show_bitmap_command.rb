@@ -1,6 +1,6 @@
 class ShowBitmapCommand
   attr_reader :bitmap
-  
+
   def initialize(*args)
     @bitmap = args[0]
   end

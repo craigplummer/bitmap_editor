@@ -9,7 +9,7 @@ RSpec.describe BuildBitmapCommand do
       let(:args) { ['7', '8'] }
 
       it 'initializes a new bitmap object' do
-        expect(Bitmap).to receive(:new).with(7, 8).and_call_original
+        expect(Bitmap).to receive(:new).with(8, 7).and_call_original
         subject.perform
       end
     end
