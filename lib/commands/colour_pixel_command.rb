@@ -6,6 +6,7 @@ class ColourPixelCommand
     @x = args[1].to_i - 1
     @colour = args[2]
     @bitmap = args[3]
+    validate_command(*args)
   end
 
   def perform
@@ -29,5 +30,10 @@ class ColourPixelCommand
 
   def validate_colour
     raise 'Invalid colour value specified' unless colour =~ /\A[A-Z]\z/
+  end
+
+  def validate_command(*args)
+    raise 'Too many arguments provided for command' if args.count - 1 > 3
+    raise 'Too few arguments provided for command' if args.count - 1 < 3
   end
 end

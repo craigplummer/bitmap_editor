@@ -4,7 +4,7 @@ class FileParser
   FILE_PARSERS = {
     '.txt' => TextFileParser
   }.freeze
-  ALLOWED_COMMANDS = ['I', 'L', 'V', 'H', 'S'].freeze
+  ALLOWED_COMMANDS = ['I', 'L', 'C', 'V', 'H', 'S'].freeze
 
   attr_reader :file, :file_extension, :commands
 

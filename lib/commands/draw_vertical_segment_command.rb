@@ -10,10 +10,12 @@ class DrawVerticalSegmentCommand
     @y2 = args[2].to_i
     @colour = args[3]
     @bitmap = args[4]
+    validate_command(*args)
     validate_coordinates
   end
 
   def perform
+    
     (y1..y2).each do |y|
       ColourPixelCommand.new(x, y, colour, bitmap).perform
     end
@@ -22,6 +24,11 @@ class DrawVerticalSegmentCommand
 
   def validate_coordinates
     raise 'Y1 needs to be lower than Y2' unless valid_coordinates?
+  end
+
+  def validate_command(*args)
+    raise 'Too many arguments provided for command' if args.count - 1 > 4
+    raise 'Too few arguments provided for command' if args.count - 1 < 4
   end
 
   def valid_coordinates?
