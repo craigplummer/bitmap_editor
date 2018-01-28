@@ -35,5 +35,15 @@ RSpec.describe CommandRunner do
         subject.perform
       end
     end
+
+    context 'with L command' do
+      let(:command) { { 'L' => ['2', '3', 'P'] } }
+      let(:bitmap) { Bitmap.new(3, 4) }
+
+      it 'initializes new ColourPixelCommand' do
+        expect(ColourPixelCommand).to receive(:new).with('2', '3', 'P', bitmap).and_call_original
+        subject.perform
+      end
+    end
   end
 end

@@ -3,11 +3,11 @@ class Bitmap
   MAX_HEIGHT = 250
   DEFAULT_COLOUR = 'O'
 
-  attr_reader :x, :y, :image
+  attr_reader :height, :width, :image
 
-  def initialize(x, y)
-    @x = x
-    @y = y
+  def initialize(height, width)
+    @height = height
+    @width = width
     validate_dimensions
     build_bitmap_image
   end
@@ -19,7 +19,7 @@ class Bitmap
   private
 
   def build_bitmap_image
-    @image = Array.new(x) { Array.new(y) { DEFAULT_COLOUR } }
+    @image = Array.new(height) { Array.new(width) { DEFAULT_COLOUR } }
   end
 
   def validate_dimensions
@@ -27,6 +27,6 @@ class Bitmap
   end
 
   def valid_dimensions?
-    x.positive? && x < MAX_HEIGHT && y.positive? && y < MAX_WIDTH
+    height.positive? && height < MAX_HEIGHT && width.positive? && width < MAX_WIDTH
   end
 end
