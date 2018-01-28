@@ -53,9 +53,8 @@ RSpec.describe CommandRunner do
       let(:bitmap) { Bitmap.new(5, 5) }
 
       it 'initializes new DrawHorizontalSegmentCommand' do
-        expect do
-          DrawHorizontalSegmentCommand
-        end.to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
+        expect(DrawHorizontalSegmentCommand).to receive(:new)
+          .with('1', '2', '3', 'P', bitmap).and_call_original
         subject.perform
       end
     end
@@ -65,9 +64,8 @@ RSpec.describe CommandRunner do
       let(:bitmap) { Bitmap.new(5, 5) }
 
       it 'initializes new DrawVerticalSegmentCommand' do
-        expect do
-          DrawVerticalSegmentCommand
-        end.to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
+        expect(DrawVerticalSegmentCommand).to receive(:new)
+          .with('1', '2', '3', 'P', bitmap).and_call_original
         subject.perform
       end
     end
