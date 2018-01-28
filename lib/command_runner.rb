@@ -2,6 +2,7 @@ require_relative 'commands/build_bitmap_command'
 require_relative 'commands/clear_bitmap_command'
 require_relative 'commands/colour_pixel_command'
 require_relative 'commands/show_bitmap_command'
+require_relative 'commands/draw_vertical_segment_command'
 require_relative 'commands/draw_horizontal_segment_command'
 require 'pry'
 
@@ -11,6 +12,7 @@ class CommandRunner
     'L' => ColourPixelCommand,
     'C' => ClearBitmapCommand,
     'S' => ShowBitmapCommand, 
+    'V' => DrawVerticalSegmentCommand,
     'H' => DrawHorizontalSegmentCommand
   }.freeze
 

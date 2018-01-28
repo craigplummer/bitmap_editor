@@ -56,5 +56,15 @@ RSpec.describe CommandRunner do
         subject.perform
       end
     end
+
+    context 'with V command' do
+      let(:command) { { 'V' => ['1', '2', '3', 'P'] } }
+      let(:bitmap) { Bitmap.new(5, 5) }
+
+      it 'initializes new DrawVerticalSegmentCommand' do
+        expect(DrawVerticalSegmentCommand).to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
+        subject.perform
+      end
+    end
   end
 end
