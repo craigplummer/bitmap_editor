@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 require_relative 'colour_pixel_command'
 require_relative 'base_command'
 

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 require_relative '../bitmap'
 require_relative 'base_command'

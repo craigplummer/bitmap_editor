@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 class Bitmap
   MAX_WIDTH = 250
   MAX_HEIGHT = 250
-  DEFAULT_COLOUR = 'O'
+  DEFAULT_COLOUR = 'O'.freeze
 
   attr_reader :height, :width, :image
 

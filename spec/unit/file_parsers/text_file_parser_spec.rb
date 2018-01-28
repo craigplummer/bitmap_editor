@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../../../lib/file_parsers/text_file_parser.rb'
 require_relative '../../spec_helper'
 

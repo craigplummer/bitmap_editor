@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../../spec_helper'
 require_relative '../../../lib/commands/draw_vertical_segment_command'
 require_relative '../../../lib/bitmap'

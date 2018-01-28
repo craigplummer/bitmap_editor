@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'commands/build_bitmap_command'
 require_relative 'commands/clear_bitmap_command'
 require_relative 'commands/colour_pixel_command'

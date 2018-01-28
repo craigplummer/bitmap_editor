@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'file_parsers/text_file_parser'
 
 class FileParser

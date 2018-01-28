@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../../lib/bitmap_editor.rb'
 
 RSpec.describe 'Drawing a bitmap from a command file' do
