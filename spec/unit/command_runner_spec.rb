@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
 require_relative '../../lib/command_runner'
+require_relative '../../lib/bitmap'
 
 RSpec.describe CommandRunner do
   subject { described_class.new(command, bitmap) }
@@ -42,6 +43,16 @@ RSpec.describe CommandRunner do
 
       it 'initializes new ColourPixelCommand' do
         expect(ColourPixelCommand).to receive(:new).with('2', '3', 'P', bitmap).and_call_original
+        subject.perform
+      end
+    end
+
+    context 'with H command' do
+      let(:command) { { 'H' => ['1', '2', '3', 'P'] } }
+      let(:bitmap) { Bitmap.new(5, 5) }
+
+      it 'initializes new DrawHorizontalSegmentCommand' do
+        expect(DrawHorizontalSegmentCommand).to receive(:new).with('1', '2', '3', 'P', bitmap).and_call_original
         subject.perform
       end
     end

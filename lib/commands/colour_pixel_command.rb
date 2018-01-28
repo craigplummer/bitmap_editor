@@ -10,7 +10,7 @@ class ColourPixelCommand
 
   def perform
     validate_attributes
-    bitmap.image[x][y] = colour
+    bitmap.image[y][x] = colour
     bitmap
   end
 
@@ -24,7 +24,7 @@ class ColourPixelCommand
   end
 
   def valid_coordinates?
-    x < bitmap.height && x.positive? && y < bitmap.width && y.positive?
+    x < bitmap.height && x >= 0 && y < bitmap.width && y >= 0
   end
 
   def validate_colour

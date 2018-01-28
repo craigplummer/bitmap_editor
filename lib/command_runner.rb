@@ -2,6 +2,7 @@ require_relative 'commands/build_bitmap_command'
 require_relative 'commands/clear_bitmap_command'
 require_relative 'commands/colour_pixel_command'
 require_relative 'commands/show_bitmap_command'
+require_relative 'commands/draw_horizontal_segment_command'
 require 'pry'
 
 class CommandRunner
@@ -9,7 +10,8 @@ class CommandRunner
     'I' => BuildBitmapCommand,
     'L' => ColourPixelCommand,
     'C' => ClearBitmapCommand,
-    'S' => ShowBitmapCommand
+    'S' => ShowBitmapCommand, 
+    'H' => DrawHorizontalSegmentCommand
   }.freeze
 
   attr_reader :command, :args
