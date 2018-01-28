@@ -1,5 +1,3 @@
-
-
 require_relative '../bitmap'
 require_relative 'base_command'
 

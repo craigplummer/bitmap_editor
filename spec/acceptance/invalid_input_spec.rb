@@ -1,5 +1,3 @@
-
-
 require_relative '../../lib/bitmap_editor.rb'
 require 'pry'
 
@@ -18,6 +16,20 @@ RSpec.describe 'Invalid Input Examples' do
       <<~COMMANDS
         I 2 3
         B 8 9 2
+      COMMANDS
+    end
+
+    it 'should raise exception' do
+      expect { subject.perform }.to raise_error(/Unknown command specified/)
+    end
+  end
+
+  context 'invalid blank commands' do
+    let(:input) do
+      <<~COMMANDS
+        I 2 3
+
+        L 1 2 C
       COMMANDS
     end
 

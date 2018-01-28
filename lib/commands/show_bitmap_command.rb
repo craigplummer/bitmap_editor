@@ -1,4 +1,3 @@
-
 require_relative 'colour_pixel_command'
 
 class ShowBitmapCommand < BaseCommand

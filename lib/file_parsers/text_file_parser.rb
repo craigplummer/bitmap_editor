@@ -1,5 +1,3 @@
-
-
 class TextFileParser
   attr_reader :file
 
